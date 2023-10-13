@@ -11,7 +11,7 @@ let setItemActive = (entries) => {
     if (entry.isIntersecting) {
       //   entryのtarget（.title）にactiveクラスをつける
       entry.target.classList.add("active");
-      // 画面外の時はactiveクラスを消しておく（戻った時にもアニメーションさせるため）
+      // 画面外の時はactiveクラスを消しておく（戻った時にもアニメーションさせたい時）
     } else {
       entry.target.classList.remove("active");
     }
@@ -30,13 +30,13 @@ observer.observe(titleMessage);
 // img-wrapは偶数と奇数で出現する場所を変える
 imagesItems.map((item, index) => {
   // テンプレート文字列でitemに背景画像を設定していく
-  item.children[0].style.backgroundImage = `url(.images/${index + 1}.jpg)`;
+  item.children[0].style.backgroundImage = `url(./images/${index + 1}.jpg)`;
   // 三項演算子で偶数番目なら右に奇数なら左に配置する処理(0スタート)
   index % 2 == 0 ? (item.style.left = "55%") : (item.style.left = "5%");
   observer.observe(item);
 });
 
 titles.map((title, index) => {
-  index % 2 == 0 ? (title.style.left = "20%") : (title.style.left = "50%");
+  index % 2 == 0 ? (title.style.left = "20%") : (title.style.left = "65%");
   observer.observe(title);
 });
