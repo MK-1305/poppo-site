@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>poppo-online-store</title>
     <link rel="stylesheet" href="style.css" />
@@ -15,37 +15,85 @@
       </section>
 
       <section>
-        <h2>catch</h2>
+        <div class="text">
+          <h2>About</h2>
+          <p class="text-about">aaa</p>
+        </div>
         <div class="img-wrap">
           <div class="img"></div>
         </div>
       </section>
+
       <section>
-        <h2>catch</h2>
+        <div class="text">
+          <h2>Feature</h2>
+          <p class="text-about">aaa</p>
+        </div>
         <div class="img-wrap">
           <div class="img"></div>
         </div>
       </section>
+
       <section>
-        <h2>catch</h2>
+        <div class="text">
+          <h2>New release</h2>
+          <p class="text-about">aaa</p>
+        </div>
         <div class="img-wrap">
           <div class="img"></div>
         </div>
       </section>
-      <section>
-        <h2>catch</h2>
-        <div class="img-wrap">
-          <div class="img"></div>
+
+      <section class="recommend">
+        <div class="recommend-image">
+          <img src="./images/img1.jpg" alt="">
         </div>
+          <div class="recommend-content">
+            <h3>recommend</h3>
+            <ul class="recommend-thumbnails">
+              <li><img src="./images/img1.jpg" alt=""></li>
+              <li><img src="./images/img2.jpg" alt=""></li>
+              <li><img src="./images/img3.jpg" alt=""></li>
+              <li><img src="./images/img4.jpg" alt=""></li>
+              <li><img src="./images/img5.jpg" alt=""></li>
+              <li><img src="./images/img6.jpg" alt=""></li>
+              <li><img src="./images/img7.jpg" alt=""></li>
+              <li><img src="./images/img8.jpg" alt=""></li>
+              <li><img src="./images/img9.jpg" alt=""></li>
+            </ul>
+          </div>
       </section>
-      <section>
-        <h2>catch</h2>
-        <div class="img-wrap">
-          <div class="img"></div>
+
+      <section class="contact">
+        <div class="contact-box">
+          <form action="">
+            <p class="contact-title">contact</p>
+
+            <div class="input-box">
+              <input type="text" placeholder="お名前" required>
+            </div>
+
+            <div class="input-box">
+              <input type="text" placeholder="件名" required>
+            </div>
+            
+            <div class="input-box">
+              <input type="textarea" placeholder="内容" required>
+            </div> 
+
+            <button type="submit" class="btn">送信</button>
+          </form>
         </div>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
       </section>
+      
     </div>
     <!-- 上から処理なのでjsは最後に -->
     <script src="./main.js"></script>
   </body>
+  <footer>
+    <p>&copy; poppo-online-store.</p>
+  </footer>
 </html>

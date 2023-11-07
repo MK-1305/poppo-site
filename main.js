@@ -1,7 +1,8 @@
 // 配列の方が後々取り出す要素が取り出しやすいためスプレッド構文で書く（普通に書くとnodelistで取れる）
 let imagesItems = [...document.querySelectorAll(".img-wrap")];
-let titles = [...document.querySelectorAll("h2")];
+let titles = [...document.querySelectorAll(".text h2, .text-about")];
 let titleMessage = document.querySelector(".title");
+let contact = document.querySelector('.contact');
 
 // 監視対象になったらactiveをつける処理
 let setItemActive = (entries) => {
@@ -40,3 +41,5 @@ titles.map((title, index) => {
   index % 2 == 0 ? (title.style.left = "20%") : (title.style.left = "65%");
   observer.observe(title);
 });
+
+observer.observe(contact);
