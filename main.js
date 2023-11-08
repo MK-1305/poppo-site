@@ -1,6 +1,6 @@
 // 配列の方が後々取り出す要素が取り出しやすいためスプレッド構文で書く（普通に書くとnodelistで取れる）
 let imagesItems = [...document.querySelectorAll(".img-wrap")];
-let titles = [...document.querySelectorAll(".text h2, .text-about")];
+let titles = [...document.querySelectorAll(".text")];
 let titleMessage = document.querySelector(".title");
 let contact = document.querySelector('.contact');
 
@@ -38,7 +38,7 @@ imagesItems.map((item, index) => {
 });
 
 titles.map((title, index) => {
-  index % 2 == 0 ? (title.style.left = "20%") : (title.style.left = "65%");
+  index % 2 == 0 ? (title.style.transform = "translateX(10%)") : (title.style.transform = "translateX(90%)");
   observer.observe(title);
 });
 
