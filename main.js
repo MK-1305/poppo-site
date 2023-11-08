@@ -3,6 +3,8 @@ let imagesItems = [...document.querySelectorAll(".img-wrap")];
 let titles = [...document.querySelectorAll(".text")];
 let titleMessage = document.querySelector(".title");
 let contact = document.querySelector('.contact');
+const mainImage = document.querySelector('.recommend-image img');
+const thumbImages = document.querySelectorAll('.recommend-thumbnails img');
 
 // 監視対象になったらactiveをつける処理
 let setItemActive = (entries) => {
@@ -38,8 +40,16 @@ imagesItems.map((item, index) => {
 });
 
 titles.map((title, index) => {
-  index % 2 == 0 ? (title.style.transform = "translateX(10%)") : (title.style.transform = "translateX(90%)");
+  index % 2 == 0 ? (title.style.transform = "translateX(5%)") : (title.style.transform = "translateX(102%)");
   observer.observe(title);
 });
 
 observer.observe(contact);
+
+//recommend
+thumbImages.forEach((thumbImage) => {
+  thumbImage.addEventListener('mouseover', (event) => {
+    mainImage.src = event.target.src;
+    mainImage.animate({opacity: [0,1]}, 500);
+  });
+});
