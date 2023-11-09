@@ -4,12 +4,38 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>poppo-online-store</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="poppoは(説明)">
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
+    <!-- ローディング画面 -->
+    <div id="loading">
+      <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header-logo">
+        <a href="#top">
+          <img src="" alt="logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <!-- 服のカテゴリーにする -->
+          <li><a href="">About</a></li>
+          <li><a href="">Feature</a></li>
+          <li><a href="">New release</a></li>
+          <li><a href="">Recommend</a></li>
+        </ul>
+      </nav>
+    </header>
+
     <div class="scroll-wrap">
       <section>
-        <div class="title">
+        <div id="top" class="title">
           <h1>もっと、私らしく</h1>
         </div>
       </section>
@@ -49,7 +75,7 @@
           <img src="./images/img1.jpg" alt="">
         </div>
           <div class="recommend-content">
-            <h3>recommend</h3>
+            <h3>Recommend</h3>
             <ul class="recommend-thumbnails">
               <li><img src="./images/img1.jpg" alt=""></li>
               <li><img src="./images/img2.jpg" alt=""></li>
@@ -96,8 +122,8 @@
     </div>
     <!-- 上から処理なのでjsは最後に -->
     <script src="./main.js"></script>
+    <footer>
+      <p>&copy; poppo-online-store.</p>
+    </footer>
   </body>
-  <footer>
-    <p>&copy; poppo-online-store.</p>
-  </footer>
 </html>

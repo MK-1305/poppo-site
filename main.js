@@ -1,8 +1,7 @@
 // 配列の方が後々取り出す要素が取り出しやすいためスプレッド構文で書く（普通に書くとnodelistで取れる）
 let imagesItems = [...document.querySelectorAll(".img-wrap")];
 let titles = [...document.querySelectorAll(".text")];
-let titleMessage = document.querySelector(".title");
-let contact = document.querySelector('.contact');
+const contact = document.querySelector('.contact');
 const mainImage = document.querySelector('.recommend-image img');
 const thumbImages = document.querySelectorAll('.recommend-thumbnails img');
 
@@ -27,8 +26,6 @@ let options = {
 
 // どこにいるのか監視し、特定の位置に来たら関数を呼ぶ
 let observer = new IntersectionObserver(setItemActive, options);
-// 何を監視するか
-observer.observe(titleMessage);
 
 // img-wrapは偶数と奇数で出現する場所を変える
 imagesItems.map((item, index) => {
@@ -43,13 +40,13 @@ titles.map((title, index) => {
   index % 2 == 0 ? (title.style.transform = "translateX(5%)") : (title.style.transform = "translateX(102%)");
   observer.observe(title);
 });
-
+// 何を監視するか
 observer.observe(contact);
 
-//recommend
+// recommend
 thumbImages.forEach((thumbImage) => {
-  thumbImage.addEventListener('mouseover', (event) => {
-    mainImage.src = event.target.src;
-    mainImage.animate({opacity: [0,1]}, 500);
-  });
+    thumbImage.addEventListener('mouseover', (event) => {
+      mainImage.src = event.target.src;
+      mainImage.animate({opacity: [0,1]}, 500);
+    });
 });

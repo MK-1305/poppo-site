@@ -9,6 +9,7 @@
 
 :root {
   font-family: "Poppins", sans-serif;
+  --grey: rgb(127, 125, 122);
 }
 
 body {
@@ -33,6 +34,88 @@ body::after {
   opacity: 0.5;
 }
 
+/* ローディング */
+#loading {
+  background-color: var(--grey);
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  transform: translate(0, 0);
+  animation: fadeout 2s ease forwards;
+  animation: translate 2s ease forwards;
+  animation-delay: 3s; 
+}
+
+@keyframes translate {
+  100% {transform: translateY(-100vh);}
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: fadeout 5s ease forwards;
+}
+
+@keyframes fadeout {
+  100% {opacity: 0;}
+}
+
+.cube1, .cube2 {
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+  25% { 
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% { 
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  } 50.1% { 
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  } 75% { 
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  } 100% { 
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background: #FFF;
+  height: 4vh;
+}
+
+
+
 .scroll-wrap {
   scroll-snap-type: y mandatory;
   overflow: auto;
@@ -56,6 +139,12 @@ section {
   white-space: nowrap;
   z-index: 1;
   opacity: 0;
+  animation: fade-in 3s ease forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes fade-in {
+  100% {opacity: 1;}
 }
 
 @media (max-width: 768px) {
@@ -258,7 +347,7 @@ h2 {
   color: rgb(127, 125, 122);
 }
 
-/* なんで4？ */
+/* なんで5？ */
 .input-box:nth-child(5) {
   height: 5rem;
 }
