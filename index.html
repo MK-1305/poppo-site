@@ -16,21 +16,24 @@
       </div>
     </div>
 
-    <header class="header">
-      <div class="header-logo">
-        <a href="#top">
-          <img src="" alt="logo">
-        </a>
+    <header id="top" class="header">
+      <div class="header-content">
+        <div class="header-logo">
+          <a href="">
+            <img src="" alt="logo">
+          </a>
+          <button class="toggle-menu-button"></button>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <!-- 服のカテゴリーにする -->
+            <li><a href="">tops</a></li>
+            <li><a href="">bottoms</a></li>
+            <li><a href="">one piece</a></li>
+            <li><a href="">jacket</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <!-- 服のカテゴリーにする -->
-          <li><a href="">About</a></li>
-          <li><a href="">Feature</a></li>
-          <li><a href="">New release</a></li>
-          <li><a href="">Recommend</a></li>
-        </ul>
-      </nav>
     </header>
 
     <div class="scroll-wrap">
@@ -108,7 +111,7 @@
             </div>
             
             <div class="input-box">
-              <input type="textarea" placeholder="内容" required>
+              <textarea name="内容" id="" cols="20" rows="5" placeholder="内容"></textarea>
             </div>
 
             <button type="submit" class="btn">送信</button>
