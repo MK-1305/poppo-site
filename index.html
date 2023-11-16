@@ -4,12 +4,41 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>poppo-online-store</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="poppoは(説明)">
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
+    <!-- ローディング画面 -->
+    <div id="loading">
+      <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+      </div>
+    </div>
+
+    <header id="top" class="header">
+      <div class="header-content">
+        <div class="header-logo">
+          <a href="">
+            <img src="" alt="logo">
+          </a>
+          <button class="toggle-menu-button"></button>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <!-- 服のカテゴリーにする -->
+            <li><a href="">tops</a></li>
+            <li><a href="">bottoms</a></li>
+            <li><a href="">one piece</a></li>
+            <li><a href="">jacket</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <div class="scroll-wrap">
       <section>
-        <div class="title">
+        <div id="top" class="title">
           <h1>もっと、私らしく</h1>
         </div>
       </section>
@@ -17,7 +46,7 @@
       <section>
         <div class="text">
           <h2>About</h2>
-          <p class="text-about">aaa</p>
+          <p class="text-about">poppoは</p>
         </div>
         <div class="img-wrap">
           <div class="img"></div>
@@ -49,7 +78,7 @@
           <img src="./images/img1.jpg" alt="">
         </div>
           <div class="recommend-content">
-            <h3>recommend</h3>
+            <h3>Recommend</h3>
             <ul class="recommend-thumbnails">
               <li><img src="./images/img1.jpg" alt=""></li>
               <li><img src="./images/img2.jpg" alt=""></li>
@@ -76,10 +105,14 @@
             <div class="input-box">
               <input type="text" placeholder="件名" required>
             </div>
+
+            <div class="input-box">
+              <input type="text" placeholder="メールアドレス" required>
+            </div>
             
             <div class="input-box">
-              <input type="textarea" placeholder="内容" required>
-            </div> 
+              <textarea name="内容" id="" cols="20" rows="5" placeholder="内容"></textarea>
+            </div>
 
             <button type="submit" class="btn">送信</button>
           </form>
@@ -92,8 +125,8 @@
     </div>
     <!-- 上から処理なのでjsは最後に -->
     <script src="./main.js"></script>
+    <footer>
+      <p>&copy; poppo-online-store.</p>
+    </footer>
   </body>
-  <footer>
-    <p>&copy; poppo-online-store.</p>
-  </footer>
 </html>
