@@ -117,6 +117,7 @@ body::after {
   background: #ffffff67;
   height: 10vh;
   z-index: 100;
+  animation: fadein 1s ease forwards;
 }
 
 .header-content {
@@ -132,11 +133,46 @@ body::after {
 
 @media (max-width: 600px) {
   .header-content {
-    
+    position: relative;
   }
 
-  .header-content ul li {
-    /* display: none; */
+  .header-content ul li{
+    display: none;
+  }
+  .header-content ul.active {
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    margin-top: 1rem;
+    top: 5rem;
+    right: 2rem;
+  }
+
+  .humberger {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+  .bar:nth-child(1) {
+    border: 1px solid #FFF;
+    margin-top: 0.5rem;
+  }
+  .bar:nth-child(2) {
+    border: 1px solid #FFF;
+    margin-top: 0.5rem;
+  }
+  .bar:nth-child(3) {
+    border: 1px solid #FFF;
+    margin-top: 0.5rem;
+  }
+  .humberger-sidebar {
+    width: 8rem;
+    height: 20rem;
+    background: var(--light-grey);
+    transform: translateX(200%);
+  }
+  .humberger-sidebar.active {
+    transform: translateX(30%);
   }
 }
 
