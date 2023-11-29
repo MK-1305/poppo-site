@@ -1,9 +1,10 @@
 // 配列の方が後々取り出す要素が取り出しやすいためスプレッド構文で書く（普通に書くとnodelistで取れる）
 let imagesItems = [...document.querySelectorAll(".img-wrap")];
 let titles = [...document.querySelectorAll(".text")];
-const contact = document.querySelector('.contact');
-const mainImage = document.querySelector('.recommend-image img');
-const thumbImages = document.querySelectorAll('.recommend-thumbnails img');
+const contact = document.querySelector(".contact");
+const mainImage = document.querySelector(".recommend-image img");
+const thumbImages = document.querySelectorAll(".recommend-thumbnails img");
+const release = document.querySelector(".new-release");
 
 // 監視対象になったらactiveをつける処理
 let setItemActive = (entries) => {
@@ -42,6 +43,7 @@ titles.map((title, index) => {
 });
 // 何を監視するか
 observer.observe(contact);
+observer.observe(release);
 
 // recommend
 thumbImages.forEach((thumbImage) => {
