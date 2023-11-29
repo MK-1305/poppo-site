@@ -148,35 +148,45 @@ body::after {
     top: 4.5rem;
     right: 0.7rem;
   }
+  /* サイドバーアニメーション */
   .header-content ul.active li {
     display: flex;
     flex-direction: column;
     opacity: 0;
-    animation: opacity 4s ease forwards;
+    animation: open-list 4s ease forwards;
   }
-  @keyframes opacity {
-    100% {opacity: 1;}    
+  @keyframes open-list {
+    100% {opacity: 1;}
   }
+  .header-content ul.close li {
+    animation: close-list 4s ease forwards;
+  }
+  @keyframes close-list {
+    100% {opacity: 0;}
+  }
+  /* ------------------------- */
   .header-nav {
     width: 100px;
-    padding-left: 2rem;
+    padding-left: 1rem;
     position: absolute;
-    top: 0.8rem;
+    top: 0.4rem;
     right: 0;
   }
   .hamburger {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
+    margin-bottom: 0.2rem;
   }
   .bar:nth-child(1) {
     border: 1px solid #FFF;
     margin-top: 0.5rem;
   }
+  /* ハンバーガーOPEN */
   .hamburger.active .bar:nth-child(1){
-    animation: rotate1 1s ease forwards;
+    animation: open1 1s ease forwards;
   }
-  @keyframes rotate1 {
+  @keyframes open1 {
     100% {transform: rotate(2turn);}
   }
   .bar:nth-child(2) {
@@ -184,9 +194,9 @@ body::after {
     margin-top: 0.5rem;
   }
   .hamburger.active .bar:nth-child(2){
-    animation: opacity2 1s ease forwards;
+    animation: open2 1s ease forwards;
   }
-  @keyframes opacity2 {
+  @keyframes open2 {
     100% {opacity: 0;}
   }
   .bar:nth-child(3) {
@@ -194,24 +204,35 @@ body::after {
     margin-top: 0.5rem;
   }
   .hamburger.active .bar:nth-child(3){
-    animation: rotate3 1s ease forwards;
+    animation: open3 1s ease forwards;
   }
-  @keyframes rotate3 {
+  @keyframes open3 {
     100% {transform: rotate(0.75turn);}    
   }
-  .hamburger-sidebar {
-    width: 8rem;
-    height: 20rem;
-    position: relative;
-    transform: translateX(200%);
-    border: solid 1px var(--light-grey);
+  /* ------------------------- */
+
+  /* ハンバーガーCLOSE */
+  .hamburger.close .bar:nth-child(1){
+    animation: close1 1s ease forwards;
   }
-  .hamburger-sidebar.active {
-    animation: translate_sidebar 1s ease forwards;
+  @keyframes close1 {
+    0% {transform: rotate(0);}
+    100% {transform: rotate(-2turn);}
   }
-  @keyframes translate_sidebar {
-    100% {transform: translate(30%, 30%);}
+  .hamburger.close .bar:nth-child(2){
+    animation: close2 1s ease forwards;
   }
+  @keyframes close2 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  .hamburger.close .bar:nth-child(3){
+    animation: close3 1s ease forwards;
+  }
+  @keyframes close3 {
+    100% {transform: rotate(-1turn);}
+  }
+  /* ------------------------- */
 }
 
 .header-content nav ul {
@@ -289,7 +310,7 @@ section {
   height: 100%;
   background-size: cover;
   background-position: center;
-  /* 最初は大きく後から小さくするため */
+  /* 最初は大きく後から小さくする */
   transform: scale(1.6);
 }
 
@@ -298,15 +319,6 @@ section {
   transition: 1s ease-out;
 }
 
-.text {
-  width: 50%;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
 
 .text.active h2,
 .text.active .text-about {
@@ -324,22 +336,83 @@ h2 {
   font-family: "Poppins", sans-serif;
 }
 
-/* h2.active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 3s;
-} */
-
 .text-about {
   opacity: 0;
 }
 
-/* .text-about.active {
-  opacity: 1;
-  transition: opacity 3s;
-} */
+.text {
+  width: 50%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
 
-/* recommend--------------------------- */
+.section .text:nth-child(2) {
+  width: 50%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* New release */
+
+.new-release {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.new-release h3 {
+  opacity: 0;
+  margin-top: 1rem;
+}
+
+.new-release.active h3 {
+  font-size: 2rem;
+  animation: fade-in 3s ease forwards;
+}
+
+.new-release p {
+  opacity: 0;
+}
+
+.new-release.active p {
+  font-style: oblique;
+  margin-top: 5rem;
+  position: relative;
+  animation: fade-in 3s ease forwards;
+}
+
+.new-release.active p::after {
+  width: 100%;
+  content: "";
+  position: absolute;
+  display: block;
+  border: 1px solid var(--light-grey);
+  left: 0;
+  animation: solid-animation 3s ease forwards;
+}
+
+@keyframes  solid-animation {
+  0% {
+    transform: scale(0,0);
+  }
+  100% {
+    transform: scale(1,1);
+  }
+}
+
+/* recommend*/
 
 .recommend {
   display: flex;
@@ -376,7 +449,26 @@ h2 {
   cursor: pointer;
 }
 
-@media (min-width: 800px) {
+@media (max-width: 600px) {
+  .recommend {
+    height: 100vh;
+  }
+  .recommend-thumbnails {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .recommend-content {
+    margin: 0 5rem;
+  }
+  .recommend-thumbnails img {
+    width: 20vw;
+    height: 20vh;
+  }
+  .recommend-image img {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
 
   .recommend {
     flex-direction: row;
@@ -512,6 +604,18 @@ h2 {
   top: 4rem;
   right: 5rem;
   z-index: 9994;
+}
+
+@media  (max-width: 600px){
+  .circle1 {
+    opacity: 0;
+  }
+  .circle2 {
+    opacity: 0;
+  }
+  .circle3 {
+    opacity: 0;
+  }
 }
 
 /* footer----------------------- */
