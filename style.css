@@ -11,6 +11,7 @@
 :root {
   --grey: rgb(59, 57, 57);
   --light-grey: rgb(127, 125, 122);
+  --hover-button: rgb(200, 199, 194);
 }
 
 body {
@@ -394,21 +395,32 @@ h2 {
 }
 
 .new-release.active p::after {
-  width: 100%;
   content: "";
   position: absolute;
   display: block;
   border: 1px solid var(--light-grey);
   left: 0;
+  bottom: 0;
+}
+
+.new-release.active p:nth-child(odd)::after {
   animation: solid-animation 3s ease forwards;
 }
+.new-release.active p:nth-child(even)::after {
+  animation: solid-animation 3s ease 1s forwards;
+  animation-delay: 1s;
+}
+/* .new-release.active p:last-child::after {
+  animation: solid-animation 3s ease forwards;
+  animation-delay: 2s;
+} */
 
 @keyframes  solid-animation {
   0% {
-    transform: scale(0,0);
+    width: 0%;
   }
   100% {
-    transform: scale(1,1);
+    width: 100%;
   }
 }
 
@@ -574,6 +586,17 @@ h2 {
   border-radius: 40px;
   margin-top: 1rem;
   cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--hover-button);
+  color: #ffffff;
+  animation: hover 0.3s ease forwards;
+}
+
+@keyframes hover {
+  0% {scale: 1;}
+  100% {scale: 1.2;}
 }
 
 .circle1 {
