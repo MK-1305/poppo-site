@@ -29,7 +29,7 @@ body::after {
   /* ブラウザ全体をrelativeにしているイメージ */
   position: absolute;
   background: white;
-  width: 100%;
+  width: 100vw;
   height: 600vh;
   top: 0;
   left: 0;
@@ -170,7 +170,6 @@ body::after {
     width: 100px;
     padding-left: 1rem;
     position: absolute;
-    top: 0.4rem;
     right: 0;
   }
   .hamburger {
@@ -269,7 +268,7 @@ section {
   z-index: 1;
   opacity: 0;
   animation: fade-in 3s ease forwards;
-  animation-delay: 3.5s;
+  animation-delay: 1s;
 }
 
 @keyframes fade-in {
@@ -544,6 +543,12 @@ span {
 .contact-box {
   width: 30%;
   z-index: 9997;
+}
+
+@media (max-width: 600px) {
+  .contact-box {
+    width: 50%;
+  }
 }
 
 .contact-title {
