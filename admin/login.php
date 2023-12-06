@@ -14,7 +14,7 @@
     </dl>    
     <dl class="login-area">
         <dt>パスワード</dt>
-        <dd><input class="input" type="text" name="name"></dd>
+        <dd><input class="input" type="password" name="pass"></dd>
     </dl>    
         <button class="button" type="submit">ログイン</button>
     </form>
