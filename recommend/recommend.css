@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(127, 125, 122);
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --grey: rgb(59, 57, 57);
+  --light-grey: rgb(127, 125, 122);
+  --hover-button: rgb(200, 199, 194);
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url(./images/yobi.jpg);
+  background-size: cover;
+  background-position: center;
+  /* スクロールしても今の画像で留まる */
+  background-attachment: fixed;
+}
