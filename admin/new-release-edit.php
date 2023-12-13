@@ -3,13 +3,21 @@ require('db_connect.php');
 
 $db = db_connect();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+$stmt = $db->prepare('select * from product where id=?');
+if (!$stmt) {
+    die($db->error);
+}
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+
+$stmt->bind_result($id, $name);
+$result = $stmt->fetch();
+if (!$result) {
+    die('product指定できてないよ');
 }
 
-
-
-
+var_dump($product_name);
 
 ?>
 
@@ -25,10 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="new-release">
         <div class="new-release-content">
             <h2>New release edit</h2>
-            <form action="new-release-update.php" method="post" enctype="multipart/form-data">
+            <form action="new-release-update.php" method="post">
                 <dl>
                     <dt>商品名</dt>
-                    <dd><input type="text" name="product-name" class="input"></dd>
+                    <dd><input type="hidden" name="id" value="<?php echo $id; ?>" ></dd>
+                    <dd><input type="text" name="name" class="input" placeholder="<?php echo h($name)?>"></dd>
                 </dl>
                 <dl>
                     <dt>URL</dt>

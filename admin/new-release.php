@@ -2,8 +2,8 @@
 require('db_connect.php');
 
 $db = db_connect();
-
-    $stmt = $db=>prepare('select id, product_name from product order by updated_at desc');
+    // productテーブルからidとnameを選択し、updated_atカラムを基準に降順でソートする
+    $stmt = $db->prepare('select id, name from product order by updated_at desc');
     
     if (!$stmt) {
         die($db->error);
@@ -13,7 +13,8 @@ $db = db_connect();
         die($db->error);
     }
 
-    $stmt->bind_result($id, $product_name);
+    $stmt->bind_result($id, $name);
+    // whileでとってたら繰り返ししなくても表示される？
     while ($stmt->fetch());
 ?>
 
@@ -32,7 +33,13 @@ $db = db_connect();
             <div class="content">
             <form action="new-release-update.php" method="post" enctype="multipart/form-data">
                 <dl>
-                    <dt><?php echo $product_name; ?></dt>
+                    <dt>
+                        <?php 
+                        for($id=0; $id<=3; $id++) {
+                            echo $id->$name();
+                        }
+                        ?>
+                    </dt>
                     <dd><button class="button"><a href="new-release-edit.php?id=<?php echo $id; ?>"></a>編集する</button></dd>
                 </dl>
             </form>

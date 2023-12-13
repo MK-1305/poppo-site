@@ -1,3 +1,25 @@
+<?php
+
+require('db_connect.php');
+
+$db = dbconnect();
+
+$stmt = $db->prepare('select id, image, name from recommend order by updated_at desc');
+
+if (!$stmt) {
+    die($db->error);
+}
+
+$success = $stmt->execute();
+if (!$success) {
+    die($db->error);
+}
+
+$stmt->bind_result($id, $image, $name);
+while ($stmt->fetch());
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,8 +34,48 @@
             <h2>Recommend</h2>
             <form action="recommend-update.php" method="post" enctype="multipart/form-data">
                 <dl>
-                    <dt>商品名</dt>
-                    <dd><img src="" alt=""></dd>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
+                    <dd><button>編集する</button></dd>
+                </dl>
+                <dl>
+                    <dt><?php echo $name ?></dt>
+                    <dd><img src="<?php echo $img_path; ?>" alt=""></dd>
                     <dd><button>編集する</button></dd>
                 </dl>
             </form>

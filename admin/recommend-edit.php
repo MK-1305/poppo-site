@@ -3,9 +3,7 @@ require('db_connect.php');
 
 $db = db_connect();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-}
+$stmt = $db->prepare('')
 
 
 
@@ -28,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form action="recommend-update.php" method="post" enctype="multipart/form-data">
                 <dl>
                     <dt>商品名</dt>
-                    <dd><input type="text" name="product-name" class="input"></dd>
+                    <dd><input type="text" name="name" class="input"></dd>
                 </dl>
                 <dl>
                     <dt>URL</dt>
